@@ -5,6 +5,10 @@ const tweetButton = document.getElementById("tweet-btn");
 const newQuoteButton = document.getElementById("new-quote-btn");
 
 
+function timeoutFunction () {
+    
+}
+
 
 // asyn function to get data from API
 async function getQuote () {
@@ -23,33 +27,33 @@ async function getQuote () {
         }
 
         
-        // Toggles the loader on/off while laoding the quoteText
+        // Toggles the loader on/off
         if (parsedData.quoteText.length === "") {
-            spinner.classList.remove("loader-display");
+            spinner.hidden = false;
+            quote.hidden = true;
         } else {
-            spinner.classList.add("loader-display");
             quote.innerText = parsedData.quoteText;
+            spinner.hidden = true;
+            quote.hidden = false;
         }
         
-        
-    // Catches error
     } catch (err) {
-        console.log('chai, something broke', err);
+        console.log('Ooops, something broke', err);
         getQuote();
     }
 }
 
 // Tweet function for sharing quote on twitter
 function tweetFunction () {
-    let quoteText = quote.innerText;
-    let quoteAuthor = author.innerText;
-    let tweetUrl = `https://twitter.com/intent/tweet?text=${quoteText} - ${quoteAuthor}`;
+    let quoteString = quote.innerText;
+    let authorString = author.innerText;
+    let tweetUrl = `https://twitter.com/intent/tweet?text="${quoteString}" - ${authorString}`;
 
+    // Creates the tweet in  a new window
     window.open(tweetUrl, '_blank');
-    console.log('button clicked');
 }
 
-// EventHandlers
+// Event Handlers
 newQuoteButton.addEventListener('click', getQuote);
 tweetButton.addEventListener('click', tweetFunction);
 

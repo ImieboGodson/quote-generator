@@ -37,10 +37,6 @@ body {
 }
 
 /* Loader */
-.loader-display {
-    display: none;
-}
-
 .loader {
     margin: auto;
     border: 16px solid #f3f3f3;
