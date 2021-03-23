@@ -53,9 +53,12 @@ body {
     100% {transform: rotate(360deg);}
 }
 
-.quote-owner-container {
+.quote-author-container {
     margin-bottom: 10px;
     text-align: center;
+}
+
+.quote-author {
     font-family: 'Cutive Mono';
     font-weight: 400;
     font-size: 1.8rem;
@@ -88,13 +91,18 @@ body {
     box-shadow: 0 1px rgba(125, 125, 125, 0.65);
 }
 
+.twitter-share-btn {
+    margin-right: 10px;
+}
+
 .twitter-share-btn:hover {
    color: rgba(29, 161, 242,1 ); 
 }
 
 .new-quote-btn {
+    margin-left: 10px;
     font-family: 'Happy Monkey';
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
 }
 
@@ -109,5 +117,15 @@ body {
 
     .quote-text {
         font-size: 2.8rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .quote-text {
+        font-size: 2.3rem;
+    }
+
+    .quote-author {
+        font-size: 1.5rem;
     }
 }
